@@ -51,10 +51,11 @@
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: var(--gray); font-size: 13px; text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; font-weight: 500; }
   .nav-links a:hover { color: var(--white); }
+  .nav-numbers { display: flex; gap: 12px; }
   .nav-cta {
     background: var(--red); color: white; border: none;
-    padding: 9px 20px; border-radius: 6px; font-size: 13px; font-weight: 600;
-    cursor: pointer; font-family: var(--font-body); display: flex; align-items: center; gap: 8px;
+    padding: 9px 16px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    cursor: pointer; font-family: var(--font-body); display: flex; align-items: center; gap: 6px;
     transition: background 0.2s, transform 0.1s;
     text-decoration: none;
   }
@@ -66,6 +67,10 @@
     min-height: 92vh; display: flex; flex-direction: column; justify-content: center;
     padding: 80px 40px 60px;
     position: relative; overflow: hidden;
+    background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.85) 50%, rgba(232,38,42,0.1) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="crack"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="8"/></filter></defs><g opacity="0.15"><path d="M600 100 L650 200 L620 300 L680 400 L600 500 L640 600" stroke="%23E8262A" stroke-width="3" fill="none" filter="url(%23crack)"/><circle cx="300" cy="150" r="80" stroke="%23E8262A" stroke-width="2" fill="none" opacity="0.3"/><rect x="800" y="350" width="150" height="300" stroke="%23E8262A" stroke-width="2" fill="none" opacity="0.2"/><path d="M100 600 Q300 550 500 600 T900 600" stroke="%23E8262A" stroke-width="2" fill="none" opacity="0.25"/></g></svg>') center/cover,
+                radial-gradient(ellipse 60% 50% at 70% 50%, rgba(232,38,42,0.08) 0%, transparent 70%);
+    background-attachment: fixed;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
@@ -110,6 +115,35 @@
     display: flex; gap: 14px; flex-wrap: wrap;
     animation: fadeUp 0.6s 0.3s ease both;
     margin-bottom: 56px;
+  }
+  .hero-numbers {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.35s ease both;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: rgba(232,38,42,0.1);
+    border: 1px solid rgba(232,38,42,0.3);
+    border-radius: 8px;
+    width: fit-content;
+  }
+  .number-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 14px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 6px;
+  }
+  .number-label {
+    font-size: 11px;
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    letter-spacing: 0.5px;
+  }
+  .number-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--red);
+    font-family: var(--font-display);
   }
   .btn-main {
     background: var(--red); color: white; border: none;
@@ -377,10 +411,13 @@
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
+    .nav-numbers { display: none; }
     .hero { padding: 60px 20px 40px; }
     .hero h1 { font-size: 52px; }
     .hero-stats { width: 100%; }
     .stat { padding: 14px 16px; }
+    .hero-numbers { width: 100%; flex-direction: column; }
+    .number-item { width: 100%; }
     section { padding: 60px 20px; }
     .how-grid { grid-template-columns: 1fr 1fr; }
     .how-grid::before { display: none; }
@@ -394,8 +431,8 @@
 <body>
 
 <!-- FLOATING WHATSAPP -->
-<a class="float-wa" href="https://wa.me/917020595693,8857821019?text=Hi! I need mobile repair" target="_blank" title="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 00.514.572l5.701-1.494A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.953-1.355l-.355-.211-3.685.965.983-3.595-.232-.37A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+<a class="float-wa" href="https://wa.me/917020595693?text=Hi! I need mobile repair" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.889-.81-1.491-1.802-1.664-2.099-.173-.297-.018-.458.13-.606.13-.13.297-.337.446-.505.149-.168.198-.286.297-.477.099-.191.05-.358-.025-.477-.075-.119-.669-1.614-.918-2.213-.242-.581-.487-.503-.669-.512-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.366-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.228 1.36.196 1.871.119.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-4.08 1.115l-.292.169-3.032-.797.812 2.956-.19.304a8.017 8.017 0 001.227 3.95 8.07 8.07 0 006.557 3.11h.005a8.04 8.04 0 008.037-8.037 8.04 8.04 0 00-8.037-8.037" fill="%23FFF"/></svg>
 </a>
 
 <!-- NAV -->
@@ -413,10 +450,16 @@
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#book">Book</a></li>
   </ul>
-  <a class="nav-cta" href="tel:+917020595693">
-    <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-    7020595693
-  </a>
+  <div class="nav-numbers">
+    <a class="nav-cta" href="tel:+917020595693" title="Call us">
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:white;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>
+      7020595693
+    </a>
+    <a class="nav-cta" href="tel:+918857821019" title="Call us">
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:white;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>
+      8857821019
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -432,10 +475,27 @@
     <span class="outline">in 30 minutes.</span>
   </h1>
   <p class="hero-sub">All brands. Original quality displays. 6-month warranty. We pick up your phone from your doorstep, repair it, and deliver it back — anywhere in Nagpur.</p>
+  
+  <!-- MOBILE NUMBERS SECTION -->
+  <div class="hero-numbers">
+    <div class="number-item">
+      <div class="number-label">📞 CALL US</div>
+      <a href="tel:+917020595693" style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
+        <div class="number-value">+91 7020595693</div>
+      </a>
+    </div>
+    <div class="number-item">
+      <div class="number-label">📞 ALTERNATE</div>
+      <a href="tel:+918857821019" style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
+        <div class="number-value">+91 8857821019</div>
+      </a>
+    </div>
+  </div>
+
   <div class="hero-btns">
     <a class="btn-main" href="#book">Book repair now &rarr;</a>
     <a class="btn-ghost" href="https://wa.me/917020595693?text=Hi! I need a price quote" target="_blank">
-      <svg style="width:16px;height:16px;fill:#25D366;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 00.514.572l5.701-1.494A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.953-1.355l-.355-.211-3.685.965.983-3.595-.232-.37A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      <svg style="width:16px;height:16px;fill:#25D366;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.889-.81-1.491-1.802-1.664-2.099-.173-.297-.018-.458.13-.606.13-.13.297-.337.446-.505.149-.168.198-.286.297-.477.099-.191.05-.358-.025-.477-.075-.119-.669-1.614-.918-2.213-.242-.581-.487-.503-.669-.512-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.366-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.228 1.36.196 1.871.119.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-4.08 1.115l-.292.169-3.032-.797.812 2.956-.19.304a8.017 8.017 0 001.227 3.95 8.07 8.07 0 006.557 3.11h.005a8.04 8.04 0 008.037-8.037 8.04 8.04 0 00-8.037-8.037" fill="currentColor"/></svg>
       WhatsApp us
     </a>
   </div>
@@ -450,8 +510,8 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item">APPLE</span><span class="ticker-item">SAMSUNG</span><span class="ticker-item">REDMI</span><span class="ticker-item">VIVO</span><span class="ticker-item">OPPO</span><span class="ticker-item">REALME</span><span class="ticker-item">ONEPLUS</span><span class="ticker-item">MOTOROLA</span><span class="ticker-item">POCO</span><span class="ticker-item">NOKIA</span><span class="ticker-item">INFINIX</span><span class="ticker-item">TECNO</span><span class="ticker-item">IQOO</span><span class="ticker-item">NOTHING</span>
-    <span class="ticker-item">APPLE</span><span class="ticker-item">SAMSUNG</span><span class="ticker-item">REDMI</span><span class="ticker-item">VIVO</span><span class="ticker-item">OPPO</span><span class="ticker-item">REALME</span><span class="ticker-item">ONEPLUS</span><span class="ticker-item">MOTOROLA</span><span class="ticker-item">POCO</span><span class="ticker-item">NOKIA</span><span class="ticker-item">INFINIX</span><span class="ticker-item">TECNO</span><span class="ticker-item">IQOO</span><span class="ticker-item">NOTHING</span>
+    <span class="ticker-item">APPLE</span><span class="ticker-item">SAMSUNG</span><span class="ticker-item">REDMI</span><span class="ticker-item">VIVO</span><span class="ticker-item">OPPO</span><span class="ticker-item">REALME</span><span class="ticker-item">ONEPLUS</span><span class="ticker-item">MOTOROLA</span>
+    <span class="ticker-item">APPLE</span><span class="ticker-item">SAMSUNG</span><span class="ticker-item">REDMI</span><span class="ticker-item">VIVO</span><span class="ticker-item">OPPO</span><span class="ticker-item">REALME</span><span class="ticker-item">ONEPLUS</span><span class="ticker-item">MOTOROLA</span>
   </div>
 </div>
 
@@ -533,11 +593,11 @@
       <div class="promise-text"><strong>6-month warranty</strong><span>On all repairs, no questions asked</span></div>
     </div>
     <div class="promise-item">
-      <div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+      <div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
       <div class="promise-text"><strong>Free pickup & delivery</strong><span>We come to you, anywhere in Nagpur</span></div>
     </div>
     <div class="promise-item">
-      <div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+      <div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.5-3.5 1.89-3.5 3.84 0 2.02 1.61 3.56 4.1 4.1v3.7h3v-3.7c1.78-.63 3-2 3-3.7h-2c-.1 1.05-.82 1.87-2.09 2.15v-3.7z"/></svg></div>
       <div class="promise-text"><strong>Pay after repair</strong><span>No advance payment required</span></div>
     </div>
     <div class="promise-item">
@@ -637,15 +697,15 @@
       <h2>Free doorstep <span>pickup, today.</span></h2>
       <p>Fill the form and we'll confirm your booking within minutes. Our technician will arrive at your chosen time. You pay only after the repair is done.</p>
       <div class="contact-item">
-        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
-        <div><div class="contact-label">Call / WhatsApp</div><div class="contact-value">+91 7020595693</div></div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg></div>
+        <div><div class="contact-label">Call / WhatsApp</div><div class="contact-value">+91 7020595693 / +91 8857821019</div></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
         <div><div class="contact-label">Location</div><div class="contact-value">Serving all of Nagpur</div></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg></div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5.5l1.92 4.04 4.92.42-3.73 3.23 1.12 4.81z"/></svg></div>
         <div><div class="contact-label">Hours</div><div class="contact-value">Daily 9 AM – 9 PM</div></div>
       </div>
     </div>
@@ -677,7 +737,7 @@
             <div class="slot-grid">
               <div class="slot taken">9–11 AM<br><span style="font-size:10px;color:var(--gray);">Fully booked</span></div>
               <div class="slot" onclick="pickSlot(this,'11 AM – 1 PM')">11 AM – 1 PM</div>
-              <div class="slot" onclick="pickSlot(this,'1 PM – 3 PM')">1 PM – 3 PM</div>
+              <div class="slot" onclick="pickSlot(this,'1 PM ��� 3 PM')">1 PM – 3 PM</div>
               <div class="slot" onclick="pickSlot(this,'3 PM – 5 PM')">3 PM – 5 PM</div>
               <div class="slot" onclick="pickSlot(this,'5 PM – 7 PM')">5 PM – 7 PM</div>
               <div class="slot" onclick="pickSlot(this,'7 PM – 9 PM')">7 PM – 9 PM</div>
@@ -695,7 +755,7 @@
         <h3>Booking confirmed!</h3>
         <div class="booking-id" id="bk-id">#CMS-0000</div>
         <p id="bk-msg" style="margin-top:10px;"></p>
-        <p style="margin-top:14px;font-size:13px;color:var(--gray);">We'll call you shortly to confirm pickup.<br>Save our number: <strong style="color:var(--white);">+91 7020595693</strong></p>
+        <p style="margin-top:14px;font-size:13px;color:var(--gray);">We'll call you shortly to confirm pickup.<br>Save our numbers: <strong style="color:var(--white);">+91 7020595693 / +91 8857821019</strong></p>
         <button class="submit-btn" style="margin-top:20px;" onclick="resetForm()">+ New booking</button>
       </div>
     </div>
@@ -710,7 +770,7 @@
       <div class="footer-brand-sub">Nagpur's trusted doorstep repair service since 2016</div>
       <div style="margin-top:16px;">
         <a class="footer-wa" href="https://wa.me/917020595693?text=Hi! I need mobile repair" target="_blank">
-          <svg style="width:16px;height:16px;fill:white;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 00.514.572l5.701-1.494A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.953-1.355l-.355-.211-3.685.965.983-3.595-.232-.37A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          <svg style="width:16px;height:16px;fill:white;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.889-.81-1.491-1.802-1.664-2.099-.173-.297-.018-.458.13-.606.13-.13.297-.337.446-.505.149-.168.198-.286.297-.477.099-.191.05-.358-.025-.477-.075-.119-.669-1.614-.918-2.213-.242-.581-.487-.503-.669-.512-.173-.009-.371-.01-.57-.01-.198 0-.52.074-.792.366-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.228 1.36.196 1.871.119.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-4.08 1.115l-.292.169-3.032-.797.812 2.956-.19.304a8.017 8.017 0 001.227 3.95 8.07 8.07 0 006.557 3.11h.005a8.04 8.04 0 008.037-8.037 8.04 8.04 0 00-8.037-8.037" fill="white"/></svg>
           Chat on WhatsApp
         </a>
       </div>
@@ -734,6 +794,7 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="tel:+917020595693">+91 7020595693</a>
+      <a href="tel:+918857821019">+91 8857821019</a>
       <a href="https://wa.me/917020595693" target="_blank">WhatsApp</a>
       <a href="#">Nagpur, Maharashtra</a>
       <a href="#">Open: 9 AM – 9 PM daily</a>
