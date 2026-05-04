@@ -1,12 +1,118 @@
-  /* ── HERO ── */
-  .hero {
-    min-height: 92vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 40px 60px;
-    position: relative; overflow: hidden;
-    background: 
-      linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.88) 50%, rgba(232,38,42,0.08) 100%),
-      linear-gradient(45deg, transparent 30%, rgba(232,38,42,0.06) 50%, transparent 70%),
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900"><defs><linearGradient id="grad1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23E8262A;stop-opacity:0.08" /><stop offset="100%25" style="stop-color:%23E8262A;stop-opacity:0.02" /></linearGradient></defs><rect width="1200" height="900" fill="url(%23grad1)"/><g stroke="%23E8262A" stroke-width="2" fill="none" opacity="0.12"><circle cx="200" cy="150" r="120" /><circle cx="1000" cy="750" r="100" /><rect x="150" y="300" width="200" height="350" rx="20" /><path d="M 600 100 L 650 250 L 620 400 L 700 500 L 600 600 L 640 750" stroke-width="2.5" /><path d="M 100 400 Q 300 350 500 400 T 900 400" stroke-width="1.5" opacity="0.15" /><path d="M 50 500 L 100 450 L 150 520 L 200 460 L 250 530 L 300 470 L 350 540" stroke-width="1.5" opacity="0.1" /><g opacity="0.08"><line x1="400" y1="200" x2="500" y2="350" /><line x1="500" y1="150" x2="600" y2="300" /><line x1="600" y1="200" x2="700" y2="350" /><line x1="700" y1="150" x2="800" y2="300" /></g></g></svg>') center/cover no-repeat,
-      radial-gradient(ellipse 60%25 50%25 at 70%25 50%25, rgba(232,38,42,0.08) 0%25, transparent 70%25);
-    background-attachment: scroll;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetan Mobile Shopee - Display & Mobile Repair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 40px 60px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=1200&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Dark overlay for better text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.88) 50%, rgba(232,38,42,0.08) 100%),
+                linear-gradient(45deg, transparent 30%, rgba(232,38,42,0.06) 50%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 70% 50%, rgba(232,38,42,0.08) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e8262a 0%, #ff4444 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(232,38,42,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(232,38,42,0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px 40px;
+                min-height: 100vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chetan Mobile Shopee</h1>
+            <p>Professional Display & Mobile Repair Services</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+</body>
+</html>
