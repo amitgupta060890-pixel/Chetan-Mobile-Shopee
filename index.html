@@ -1,9 +1,118 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./chetan_mobile_shopee.html">
-    <link rel="canonical" href="./chetan_mobile_shopee.html">
-  </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetan Mobile Shopee - Display & Mobile Repair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 40px 60px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=1200&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Dark overlay for better text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.88) 50%, rgba(232,38,42,0.08) 100%),
+                linear-gradient(45deg, transparent 30%, rgba(232,38,42,0.06) 50%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 70% 50%, rgba(232,38,42,0.08) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e8262a 0%, #ff4444 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(232,38,42,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(232,38,42,0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px 40px;
+                min-height: 100vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chetan Mobile Shopee</h1>
+            <p>Professional Display & Mobile Repair Services</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+</body>
 </html>
